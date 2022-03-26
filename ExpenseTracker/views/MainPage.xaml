@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:model="clr-namespace:ExpenseTracker" xmlns:model1="clr-namespace:ExpenseTracker.models"
+             x:Class="ExpenseTracker.MainPage">
+       <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="AddBudgetClicked" />
+        <ToolbarItem Text="+" Clicked="AddExpenseButton_Clicked" />
+
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <Button x:Name="AddBudgetButton" Text="Add Budget" Clicked="AddBudgetClicked" />
+        <Button x:Name="AddExpenseButton" Text="Add Expense" Clicked="AddExpenseButton_Clicked" />
+
+        
+               <Label
+            x:Name="BudgetLabel"
+          />
+        <ListView x:Name="ExpenseListView"
+                
+                 >
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Expense">
+                    <ViewCell >
+
+                         <StackLayout Orientation="Horizontal" >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            
+                            <Label Text="{Binding Name}"  />
+                            
+                            <Label Text="{Binding Date}" 
+                                   Grid.Column="1"/>
+                            <Label Text="{Binding Amount}"  Grid.Column="2" />
+                            </Grid>
+                        </StackLayout>
+                         </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
